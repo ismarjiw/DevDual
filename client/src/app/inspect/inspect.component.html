@@ -10,4 +10,14 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
+
+  <div *ngIf="user">
+    <h2>User Profile</h2>
+    <p>Full Name: {{ user.fullName }}</p>
+    <p>Location: {{ user.location }}</p>
+    <p>Bio: {{ user.bio }}</p>
+    <img [src]="user.avatarUrl" alt="Avatar">
+    
+  </div>
+  
 </div>

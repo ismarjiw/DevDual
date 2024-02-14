@@ -4,14 +4,16 @@ import { UserService } from 'src/user.service';
 @Component({
   selector: 'app-inspect',
   templateUrl: './inspect.component.html',
-  styleUrls: ['./inspect.component.css']
+  styleUrls: ['./inspect.component.css'],
 })
 export class InspectComponent implements OnInit {
 
-  username: string = ""
+  username: string = '';
+  user: any;
 
+  constructor(private userService: UserService) {
 
-  constructor(private userService: UserService) { }
+  }
 
   ngOnInit(): void {
   }
@@ -21,9 +23,11 @@ export class InspectComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.inspectUser(this.username);
+    try {
+      this.user = this.userService.inspectUser(this.username);
+    } catch (error) {
+      console.log('Failed to fetch user details', error);
+    }
+    
   }
-
-
-
 }
