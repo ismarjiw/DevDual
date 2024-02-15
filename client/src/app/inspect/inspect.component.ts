@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
+import { ProfileComponent } from '../profile/profile.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-inspect',
@@ -27,7 +29,7 @@ export class InspectComponent implements OnInit {
       this.user = await this.userService.inspectUser(this.username);
       console.log('User details:', this.user);
     } catch (error) {
-      console.log('Failed to fetch user details', error);
+      throw error;
     }
   }
 }

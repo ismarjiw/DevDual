@@ -17,10 +17,8 @@ export class UserService {
     let source = this.http.get(inspectUserUrl + username);
     try {
       let data = await lastValueFrom(source);
-      console.log(data);
       return data;
     } catch (error) {
-      console.error('Error occurred:', error);
       throw error; 
     }
   }
@@ -30,10 +28,8 @@ export class UserService {
     let source = this.http.get(duelUsersUrl + `username=${user1}&username=${user2}`);
     try {
       let data = await lastValueFrom(source);
-      console.log(data);
       return data;
     } catch (error) {
-      console.error('Error occurred:', error);
       throw error; 
     }
   }

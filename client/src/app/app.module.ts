@@ -10,7 +10,8 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
-import { UserService } from 'src/user.service';
+import { UserService } from 'src/app/user.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserService } from 'src/user.service';
     NavbarComponent,
     LinkButtonComponent,
     HomeComponent,
-    TextInputComponent
+    TextInputComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
