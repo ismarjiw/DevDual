@@ -1,0 +1,8 @@
+.info-category {
+    display: inline-block; 
+    border: 2px solid black; 
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem; 
+    margin: 0.5rem; 
+    background-color: #A6E4FF;
+}

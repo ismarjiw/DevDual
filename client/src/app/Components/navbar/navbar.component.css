@@ -4,5 +4,16 @@ font-style: normal;
 font-weight: 700;
 font-size: 48px;
 text-align: center;
-color: #581DFF;
+color: #FFFF;
+text-decoration: underline;
+text-decoration-color: white;
+}
+
+.link:hover {
+    text-decoration: underline; 
+    text-decoration-color: #FEC601;
+}
+
+.link:active {
+    text-decoration-color: #FEC601; 
 }

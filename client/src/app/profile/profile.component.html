@@ -1,20 +1,15 @@
-<div *ngIf="user">
-    <h2>User Profile</h2>
-    <p>Full Name: {{ user.name }}</p>
-    <p>Location: {{ user.location }}</p>
-    <p>Bio: {{ user.bio }}</p>
-    <p>Followers: {{ user.followers }}</p>
-    <p>Following: {{ user.following }}</p>
-    <p>Public repos: {{ user['public-repos'] }}</p>
-    <h3>Titles:</h3>
-    <ul>
-      <li *ngFor="let title of user.titles">
-        {{ title }}
-      </li>
-    </ul>  
-    <p>Favorite language: {{ user['favorite-language'] }}</p>  
-    <p>Highest single repository star count: {{ user['highest-starred'] }}</p>
-    <p>Number of perfect projects: {{ user['perfect-repos'] }}</p>
-    <p>Total number of stars across all repositories: {{ user['total-stars'] }}</p>
-    <img [src]="user.avatar_url" alt="Profile Picture">
-  </div>
+<div class="profile-content" *ngIf="user">
+  <p><span class="info-category">Username:</span> {{ user.username }}</p>
+  <p><span class="info-category">Full Name:</span> {{ user.name }}</p>
+  <p><span class="info-category">Location:</span> {{ user.location }}</p>
+  <p><span class="info-category">Bio:</span> {{ user.bio }}</p>
+  <p><span class="info-category">Followers:</span> {{ user.followers }}</p>
+  <p><span class="info-category">Following:</span> {{ user.following }}</p>
+  <p><span class="info-category">Public repos:</span> {{ user['public-repos'] }}</p>
+  <p><span class="info-category">Titles:</span> {{ user.titles.join(', ') }}</p>
+  <p><span class="info-category">Favorite language:</span> {{ user['favorite-language'] }}</p>
+  <p><span class="info-category">Highest single repository star count:</span> {{ user['highest-starred'] }}</p>
+  <p><span class="info-category">Number of perfect projects:</span> {{ user['perfect-repos'] }}</p>
+  <p><span class="info-category">Total number of stars across all repositories:</span> {{ user['total-stars'] }}</p>
+  <img class="profile-pic" [src]="user.avatar_url" alt="Profile Picture">
+</div>
