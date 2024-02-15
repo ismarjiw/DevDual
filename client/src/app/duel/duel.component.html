@@ -18,4 +18,24 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
+  <div *ngIf="loading" class="spinner"> 
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="duel-users-content">
+    <ng-container *ngIf="duelUsers && duelUsers.length >= 2">
+    <app-profile 
+    *ngIf="duelUsers[0]" 
+    [user]="duelUsers[0]"
+    [ngClass]="{'more-repos': duelUsers[0]['public-repos'] > duelUsers[1]['public-repos']}"
+    ></app-profile>
+    <app-profile 
+    *ngIf="duelUsers[1]" 
+    [user]="duelUsers[1]"
+    [ngClass]="{'more-repos': duelUsers[1]['public-repos'] > duelUsers[0]['public-repos']}"
+    ></app-profile>
+  </ng-container>
+  </div>
+    
+  
 </div>

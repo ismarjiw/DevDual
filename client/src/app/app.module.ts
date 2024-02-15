@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
 import { UserService } from 'src/user.service';
 import { ProfileComponent } from './profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
