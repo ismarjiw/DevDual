@@ -13,11 +13,23 @@
 
   <div *ngIf="user">
     <h2>User Profile</h2>
-    <p>Full Name: {{ user.fullName }}</p>
+    <p>Full Name: {{ user.name }}</p>
     <p>Location: {{ user.location }}</p>
     <p>Bio: {{ user.bio }}</p>
-    <img [src]="user.avatarUrl" alt="Avatar">
-    
+    <p>Followers: {{ user.followers }}</p>
+    <p>Following: {{ user.following }}</p>
+    <p>Public repos: {{ user['public-repos'] }}</p>
+    <h3>Titles:</h3>
+    <ul>
+      <li *ngFor="let title of user.titles">
+        {{ title }}
+      </li>
+    </ul>  
+    <p>Favorite language: {{ user['favorite-language'] }}</p>  
+    <p>Highest single repository star count: {{ user['highest-starred'] }}</p>
+    <p>Number of perfect projects: {{ user['perfect-repos'] }}</p>
+    <p>Total number of stars across all repositories: {{ user['total-stars'] }}</p>
+    <img [src]="user.avatar_url" alt="Profile Picture">
   </div>
   
 </div>

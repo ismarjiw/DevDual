@@ -22,12 +22,12 @@ export class InspectComponent implements OnInit {
     this.username = valueEmitted;
   }
 
-  onSubmit() {
+  async onSubmit() {
     try {
-      this.user = this.userService.inspectUser(this.username);
+      this.user = await this.userService.inspectUser(this.username);
+      console.log('User details:', this.user);
     } catch (error) {
       console.log('Failed to fetch user details', error);
     }
-    
   }
 }
