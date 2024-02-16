@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
 
+
 @Component({
   selector: 'app-duel',
   templateUrl: './duel.component.html',
@@ -14,7 +15,8 @@ export class DuelComponent implements OnInit {
 
   loading = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
   }
@@ -27,9 +29,20 @@ export class DuelComponent implements OnInit {
     this.usernameTwo = valueEmitted;
   }
 
+  
+  userWithMostRepos(): any {
+    if (!this.duelUsers || this.duelUsers.length < 2) {
+      return null; // Handle case where duelUsers array is not yet populated or doesn't have enough users
+    }
+  
+    // Determine the user with the most public repos
+    return this.duelUsers.reduce((prevUser: any, currentUser: any) => {
+      return prevUser['public-repos'] > currentUser['public-repos'] ? prevUser : currentUser;
+    });
+  }  
+
   async onSubmit() {
     this.loading = true;
-
     try {
       this.duelUsers = await this.userService.duelUsers(this.usernameOne, this.usernameTwo);
       console.log('Both user details:', this.duelUsers);
