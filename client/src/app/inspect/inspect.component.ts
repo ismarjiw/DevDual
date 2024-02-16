@@ -12,6 +12,7 @@ export class InspectComponent implements OnInit {
 
   username: string = '';
   user: any;
+  error: any;
 
   constructor(private userService: UserService) {
 
@@ -25,10 +26,11 @@ export class InspectComponent implements OnInit {
   }
 
   async onSubmit() {
+    this.error = '';
     try {
       this.user = await this.userService.inspectUser(this.username);
-      console.log('User details:', this.user);
     } catch (error) {
+      this.error = error;
       throw error;
     }
   }

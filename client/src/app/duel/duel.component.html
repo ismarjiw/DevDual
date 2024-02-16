@@ -22,15 +22,21 @@
     <mat-spinner></mat-spinner>
   </div>
 
+  <div class="duel-error" *ngIf="error">{{ error.message }}</div>
+
+  <div class="winner-content" *ngIf="duelUsers && duelUsers.length >= 2">
+      <img class="winner-gif" *ngIf="userWithMostRepos() === duelUsers[0] || userWithMostRepos() === duelUsers[1]" src="../../assets/winner.gif" alt="Winner GIF">
+      <p class="winner-msg" *ngIf="userWithMostRepos() === duelUsers[0]">{{duelUsers[0].username}} has the most public repos!</p>
+      <p class="winner-msg" *ngIf="userWithMostRepos() === duelUsers[1]">{{duelUsers[1].username}} has the most public repos!</p>
+  </div>
+
   <div class="duel-users-content">
     <ng-container *ngIf="duelUsers && duelUsers.length >= 2">
-      <img *ngIf="userWithMostRepos() === duelUsers[0]" src="../../assets/winner.gif" alt="Winner GIF">
       <app-profile 
       *ngIf="duelUsers[0]" 
       [user]="duelUsers[0]"
       [ngClass]="{'more-repos': duelUsers[0]['public-repos'] > duelUsers[1]['public-repos']}"
       ></app-profile>
-      <img *ngIf="userWithMostRepos() === duelUsers[1]" src="../../assets/winner.gif" alt="Winner GIF">
       <app-profile 
       *ngIf="duelUsers[1]" 
       [user]="duelUsers[1]"

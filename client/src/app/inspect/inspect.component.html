@@ -10,7 +10,9 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
-  
+
+  <div class="inspect-error" *ngIf="error">{{ error.message }}</div>
+
   <app-profile [user]="user"></app-profile>
   
 </div>

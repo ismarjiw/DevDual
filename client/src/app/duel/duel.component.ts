@@ -12,8 +12,11 @@ export class DuelComponent implements OnInit {
   usernameTwo: string = ""
 
   duelUsers: any;
+  error: any;
 
   loading = false;
+
+  sound: HTMLAudioElement = new Audio("https://www.myinstants.com/media/sounds/thepriceisrightextendedtheme128kmusic.mp3");
 
   constructor(private userService: UserService) {
   }
@@ -43,12 +46,12 @@ export class DuelComponent implements OnInit {
 
   async onSubmit() {
     this.loading = true;
+    this.error = '';
     try {
       this.duelUsers = await this.userService.duelUsers(this.usernameOne, this.usernameTwo);
-      console.log('Both user details:', this.duelUsers);
-      console.log('First user repos:', this.duelUsers[0]['public-repos']); 
-      console.log('Second user repos:', this.duelUsers[1]['public-repos']); 
+      this.sound.play();
     } catch (error) {
+      this.error = error;
       throw error;
     } finally {
       this.loading = false; 
